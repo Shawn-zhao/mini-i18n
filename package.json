@@ -1,5 +1,5 @@
 {
-  "name": "@wooc/mini-i18n",
+  "name": "mini-i18n",
   "version": "0.0.5",
   "description": "小程序多语言",
   "miniprogram": "dist/index.js",
