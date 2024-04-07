@@ -38,7 +38,7 @@ function _publicHint (
         The current system language is ${sysLang}, do you want to switch?`,
         success (res: { confirm: any; cancel: any; }) {
           if (res.confirm) {
-            i18n.setLocales(sysLang)
+            i18n.setLocales({ lang: sysLang, isReload: true })
           } else if (res.cancel) {
             console.log('用户点击取消')
           }
