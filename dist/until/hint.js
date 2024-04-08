@@ -18,10 +18,10 @@ var _hint = function (i18n) {
 };
 exports._hint = _hint;
 function _publicHint(i18n) {
-    var isChinese = i18n.langTag === 'zh-Hans';
     var langList = i18n.getLanguagePackList();
     var sysLang = (0, until_1.getLang)();
     var tag = i18n._formatLanguageTag(sysLang);
+    var isChinese = tag === 'zh-Hans';
     var index = langList.findIndex(function (item) { return item === tag; });
     if (sysLang !== i18n.lang) {
         if (index !== -1) {

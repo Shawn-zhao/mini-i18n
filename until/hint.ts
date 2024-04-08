@@ -22,10 +22,11 @@ function _publicHint (
    _formatLanguageTag: (arg0: any) => any; lang: any; themeColor: any; 
    setLocales: (arg0: any) => void; defualtLang: any; 
   }) {
-  const isChinese = i18n.langTag === 'zh-Hans'
+
   const langList = i18n.getLanguagePackList()
   const sysLang = getLang()
   const tag = i18n._formatLanguageTag(sysLang)
+  const isChinese = tag === 'zh-Hans'
   const index = langList.findIndex((item: string)=> item === tag)
   if(sysLang !== i18n.lang) {
     if(index !== -1) {
