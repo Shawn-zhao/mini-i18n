@@ -14,6 +14,7 @@ class I18n {
   homePath: string
   isVerifiyApi: boolean
   isHint: boolean
+
   constructor() {
     this.allLangData = Object.create(null)
     this.lang = 'en-US'
@@ -38,6 +39,7 @@ class I18n {
     this.defualtLangTag = this._formatLanguageTag(this.defualtLang) || this.defualtLangTag
 
     const localLang = _storage('get')
+    console.log('localLang', localLang)
     // params > localStorage > userAgent > defualt Lang
     this.lang = config.lang || localLang || getLang() || this.defualtLang
     this.langTag = this._formatLanguageTag(this.lang)
@@ -75,13 +77,13 @@ class I18n {
    * 增量更新语言包
    */
   updateLocale({
-    locales,
-    isReload = false,
-    isAnalyticalData = true,
-    mark = '.',
-    path = '',
-    query = {},
-  }: UpdateLocaleType): void {
+                 locales,
+                 isReload = false,
+                 isAnalyticalData = true,
+                 mark = '.',
+                 path = '',
+                 query = {},
+               }: UpdateLocaleType): void {
     // isAnalyticalData ? 解析 json 数据为对象嵌套 : 不解析
     const data = isAnalyticalData ? dealData.analyticalData(locales, mark) : locales
     this.allLangData = merge(this.allLangData, data)

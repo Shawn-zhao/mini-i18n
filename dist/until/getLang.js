@@ -3,7 +3,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.getLang = void 0;
 var env_1 = require("./env");
 var getLang = function () {
-    if (env_1._env === 'wechat' || env_1._env === 'baidu' || env_1._env === 'qq' || env_1._env === 'jd' || env_1._env === 'bytedance') {
+    if (env_1._env === 'wechat') {
+        return _wxLang();
+    }
+    else if (env_1._env === 'baidu' || env_1._env === 'qq' || env_1._env === 'jd' || env_1._env === 'bytedance') {
         return _publicLang();
     }
     else if (env_1._env === 'alipay') {
@@ -17,6 +20,10 @@ var getLang = function () {
     }
 };
 exports.getLang = getLang;
+function _wxLang() {
+    console.log("微信环境使用getAppBaseInfo().language");
+    return env_1.ty.getAppBaseInfo().language;
+}
 function _publicLang() {
     return env_1.ty.getSystemInfoSync().language;
 }

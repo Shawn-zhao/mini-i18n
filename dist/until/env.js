@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports._env = exports.ty = void 0;
 function getEnv() {
-    if (typeof wx !== 'undefined' && wx.getSystemInfo) {
+    if (typeof wx !== 'undefined' && wx.getAppBaseInfo) {
         exports.ty = wx;
         return 'wechat';
     }

@@ -28,6 +28,7 @@ var I18n = (function () {
         this.defualtLang = config.defualtLang || this.defualtLang;
         this.defualtLangTag = this._formatLanguageTag(this.defualtLang) || this.defualtLangTag;
         var localLang = (0, until_1._storage)('get');
+        console.log('localLang', localLang);
         this.lang = config.lang || localLang || (0, until_1.getLang)() || this.defualtLang;
         this.langTag = this._formatLanguageTag(this.lang);
         (0, until_1._storage)('set', this.lang);
