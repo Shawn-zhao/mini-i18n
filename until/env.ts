@@ -6,7 +6,7 @@
 
  function getEnv () {
    // @ts-ignore
-  if (typeof wx !== 'undefined' && wx.getSystemInfo) {
+  if (typeof wx !== 'undefined' && wx.getAppBaseInfo) {
     // @ts-ignore
     ty = wx
     return 'wechat'

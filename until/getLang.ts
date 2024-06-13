@@ -5,21 +5,28 @@
 import { _env, ty } from './env'
 
 export const getLang = () => {
-  if ( _env === 'wechat' || _env === 'baidu' || _env === 'qq' || _env === 'jd' || _env === 'bytedance' ) {
+  if (_env === 'wechat') {
+    return _wxLang()
+  } else if (_env === 'baidu' || _env === 'qq' || _env === 'jd' || _env === 'bytedance') {
     return _publicLang()
   } else if (_env === 'alipay') {
     return _alipayLang()
   } else if (_env === 'browser') {
     window.navigator.language || ''
   } else {
-    console.error('不支持当前环境');
+    console.error('不支持当前环境')
   }
 }
 
-function _publicLang () {
+function _wxLang() {
+  console.log("微信环境使用getAppBaseInfo().language")
+  return ty.getAppBaseInfo().language
+}
+
+function _publicLang() {
   return ty.getSystemInfoSync().language
 }
 
-function _alipayLang () {
+function _alipayLang() {
   return ty.env.language || ''
 }
