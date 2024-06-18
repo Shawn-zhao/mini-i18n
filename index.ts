@@ -40,8 +40,8 @@ class I18n {
 
     const localLang = _storage('get')
     console.log('localLang', localLang)
-    // params > localStorage > userAgent > defualt Lang
-    this.lang = config.lang || localLang || getLang() || this.defualtLang
+    // params > localStorage  > defualt Lang > userAgent
+    this.lang = config.lang || localLang || this.defualtLang || getLang()
     this.langTag = this._formatLanguageTag(this.lang)
     _storage('set', this.lang)
 
